@@ -17,14 +17,77 @@ void main()
 
     while (!gameOver)
     {
+
+    int pos;
     int ur;
-    printf("Enter Row: ");
-    scanf("%d", &ur);
-    getchar();
     int uc;
-    printf("\nEnter Column: ");
-    scanf("%d", &uc);
-    board[ur-1][uc-1] = 'X';
+    PrintBoard();
+    printf("Enter Position (1-9): ");
+    scanf("%d", &pos);
+    getchar();
+
+    switch (pos)
+    {
+        case 1:
+        ur = 0;
+        uc = 0;
+        break;
+
+        case 2:
+        ur = 0;
+        uc = 1;
+        break;
+
+        case 3:
+        ur = 0;
+        uc = 2;
+        break;
+
+        case 4:
+        ur = 1;
+        uc = 0;
+        break;
+
+        case 5:
+        ur = 1;
+        uc = 1;
+        break;
+
+        case 6:
+        ur = 1;
+        uc = 2;
+        break;
+
+        case 7:
+        ur = 2;
+        uc = 0;
+        break;
+
+        case 8:
+        ur = 2;
+        uc = 1;
+        break;
+
+        case 9:
+        ur = 2;
+        uc = 2;
+        break;
+
+        default:
+        printf("\nYou Ruined the Game !\n\n");
+        break;
+        break;
+    }
+
+    if (board[ur][uc] != '.')
+    {
+        printf("\nYou Ruined the Game !\n\n");
+        break;
+    }
+
+    board[ur][uc] = 'X';
+
+
 
     if (IsGameOver())
     {
@@ -81,7 +144,7 @@ void main()
     }
     
     board[rr][rc] = 'O'; 
-    PrintBoard();
+    //PrintBoard();
     if (IsGameOver())
     {
         if (winner == 'X')
